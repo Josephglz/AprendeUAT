@@ -1,0 +1,50 @@
+<nav class="select-none bg-white border-gray-200 shadow-md font-Poppins p-4 flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0 md:pl-32 md:pr-32">
+  <div class="flex flex-row justify-between items-center">
+    <a href="/">
+      <img
+        class="h-8"
+        src="https://bmkkolipsthwmgjsnoaj.supabase.co/storage/v1/object/public/banners/UAT_logo.png"
+        alt="Logo UAT">
+    </a>
+
+    <button (click)="toggleMenu()" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-white rounded-lg md:hidden bg-Secondary-Blue focus:outline-none focus:ring-2 focus:ring-gray-200">
+      <span class="sr-only">Abrir menú principal</span>
+      <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+      </svg>
+    </button>
+  </div>
+
+  <div
+    [ngClass]="{'hidden': isMenuCollapse}"
+    class="md:flex flex-col md:flex-row text-gray-900 font-medium md:space-x-8">
+    <p
+      routerLink="/"
+      routerLinkActive="md:text-Secondary-Cyan md:font-bold bg-Secondary-LightBlue text-white"
+      class="block py-2 pl-3 pr-4 rounded md:bg-transparent md:text-Primary-Black md:p-0 md:hover:text-Secondary-Cyan cursor-pointer">
+      Inicio
+    </p>
+    <p
+      routerLink="asesorias"
+      routerLinkActive="md:text-Secondary-Cyan md:font-bold bg-Secondary-LightBlue text-white"
+      class="block py-2 pl-3 pr-4 rounded md:bg-transparent md:text-Primary-Black md:p-0 md:hover:text-Secondary-Cyan cursor-pointer">
+      Asesorias
+    </p>
+    <p
+      routerLink="talleres"
+      routerLinkActive="md:text-Secondary-Cyan md:font-bold bg-Secondary-LightBlue text-white"
+      class="block py-2 pl-3 pr-4 rounded md:bg-transparent md:text-Primary-Black md:p-0 md:hover:text-Secondary-Cyan cursor-pointer">
+      Talleres
+    </p>
+    <p
+      routerLink="asesores"
+      routerLinkActive="md:text-Secondary-Cyan md:font-bold bg-Secondary-LightBlue text-white"
+      class="block py-2 pl-3 pr-4 rounded md:bg-transparent md:text-Primary-Black md:p-0 md:hover:text-Secondary-Cyan cursor-pointer">
+      Asesores
+    </p>
+    <div class="md:flex items-center block py-2 pl-3 pr-4 rounded md:bg-transparent md:text-Primary-Black md:p-0 md:hover:text-Secondary-Cyan cursor-pointer">
+      <i class="fa-solid fa-user hidden md:block"></i>
+      <p class="md:hidden">Acceder</p>
+    </div>
+  </div>
+</nav>
