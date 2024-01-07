@@ -1,0 +1,60 @@
+
+<div class="w-full flex flex-col space-y-2 md:space-y-0 md:flex-row md:space-x-4 pl-2 pr-2 md:pl-6 md:pr-6">
+  <section id="recentFiles" class="flex flex-col w-full shadow-sm md:shadow-md">
+    <div class="w-full flex items-center justify-center space-x-3 p-2 bg-Primary-Blue">
+      <i class="fa-solid fa-clock text-white text-xl"></i>
+      <h2 class="font-semibold text-2xl text-white">
+        Materiales recientes
+      </h2>
+    </div>
+
+    <div class="p-1 border-b-2">
+      <p
+        (click)="toggleCollapse(0)"
+        class="font-semibold cursor-pointer">Ingeniería en Sistemas</p>
+      <div
+        [ngClass]="{'hidden': !isCollapsed[0]}"
+        class="ml-6 mr-6 text-slate-600">
+        <p class="truncate cursor-pointer"><i class="fa-solid fa-link text-xs mr-2"></i>Instalación de NodeJS</p>
+        <p class="truncate cursor-pointer"><i class="fa-solid fa-link text-xs mr-2"></i>Instalación de Angular</p>
+        <p class="truncate cursor-pointer"><i class="fa-solid fa-link text-xs mr-2"></i>Fundamentos de Programación</p>
+      </div>
+    </div>
+
+    <div class="p-1 border-b-2">
+      <p
+        (click)="toggleCollapse(1)"
+        class="font-semibold cursor-pointer">Ingeniería Civil</p>
+      <div
+        [ngClass]="{'hidden': !isCollapsed[1]}"
+        class="ml-6 mr-6 text-slate-600">
+        <p class="truncate cursor-pointer"><i class="fa-solid fa-link text-xs mr-2"></i>Material didactico de ingenieria civil</p>
+        <p class="truncate cursor-pointer"><i class="fa-solid fa-link text-xs mr-2"></i>Fundamentos de ingeniería civil</p>
+      </div>
+    </div>
+
+    <div class="p-1 border-b-2">
+      <p
+        (click)="toggleCollapse(2)"
+        class="font-semibold cursor-pointer">Otros tópicos ejemplo</p>
+      <div
+        [ngClass]="{'hidden': !isCollapsed[2]}"
+        class="ml-6 mr-6 text-slate-600">
+        <p class="truncate cursor-pointer"><i class="fa-solid fa-link text-xs mr-2"></i>Material uno</p>
+        <p class="truncate cursor-pointer"><i class="fa-solid fa-link text-xs mr-2"></i>Material dos</p>
+        <p class="truncate cursor-pointer"><i class="fa-solid fa-link text-xs mr-2"></i>Material tres</p>
+      </div>
+    </div>
+
+  </section>
+
+  <section id="news" class="md:w-2/3 shadow-sm md:shadow-md ">
+    <div class="w-full flex items-center justify-center space-x-3 p-2 bg-Primary-Blue">
+      <i class="fa-solid fa-newspaper text-white text-xl"></i>
+      <h2 class="font-semibold text-2xl text-white">
+        Noticias
+      </h2>
+    </div>
+    <img src="https://bmkkolipsthwmgjsnoaj.supabase.co/storage/v1/object/public/banners/announce1.jpg" alt="">
+  </section>
+</div>
