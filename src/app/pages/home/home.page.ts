@@ -1,14 +1,18 @@
-import { ChangeDetectionStrategy, Component, type OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+
+import { CarouselComponent } from '../../components/carousel/carousel.component';
 
 @Component({
   standalone: true,
-  imports: [],
+  imports: [
+    CommonModule,
+
+    CarouselComponent,
+  ],
   templateUrl: './home.page.html',
   styleUrl: './home.page.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HomePage implements OnInit {
-
-  ngOnInit(): void { }
+export class HomePage{
 
 }
