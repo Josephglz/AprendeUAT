@@ -7,6 +7,8 @@ import { FiltersService } from '../../services/filters.service';
 import { CareerData, SubjectData } from '../../interfaces/CareerData';
 
 import { AdvisoryCardComponent } from '../../components/advisory-card/advisory-card.component';
+import { Advisory } from '../../interfaces/Advisory';
+import { AdvisoryService } from '../../services/advisory.service';
 
 @Component({
   standalone: true,
@@ -24,20 +26,30 @@ export class AdvisoryPage {
   careers: CareerData[] = [];
   subjects: SubjectData[] = [];
   subjectFilter: string[] = [];
+  advisoryList: Advisory[] = [];
   // subjectFilter: string[] = ['Matemáticas para Computación', 'Matemáticas para Computación', 'Matemáticas para Computación', 'Matemáticas para Computación', 'Gestión Organizacional de las Tecnologías de la Información y Comunicación', 'Telecomunicaciones', 'Estructuras de Datos', 'Introducción a al Ingeniería']
 
   constructor(
     private _filtersService: FiltersService,
+    private _advisoryService: AdvisoryService,
   ) {}
 
   ngOnInit() {
     this.loadCareers().then((data) => {
       this.careers = data;
     })
+
+    this.loadAdvisories().then((data) => {
+      this.advisoryList = data;
+    })
   }
 
   async loadCareers() {
     return this._filtersService.getCareers()
+  }
+
+  async loadAdvisories() {
+    return this._advisoryService.getAdvisories()
   }
 
   async getSubjectsData(event: any) {
