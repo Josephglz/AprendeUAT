@@ -1,23 +1,25 @@
 <div class="bg-white w-full rounded-md p-2 shadow-md cursor-pointer">
   <div class="flex flex-col space-y-1">
     <div class="flex flex-row text-[10px] items-center justify-between text-slate-600">
-      <p class="font-semibold w-3/4 truncate">Gonzalez Cabrales Joseph Ian</p>
-      <p class="w-1/4">hace 3 min </p>
+      <p class="font-semibold w-3/4 truncate">{{ advisory.owner }}</p>
+      <p class="w-[27%] text-right">{{ sinceTime }}</p>
     </div>
     <div class="max-h-10 h-10 text-sm line-clamp-2 text-slate-700">
-      <p class="">¿Qué son las sentencias condicionales? Probando texto largo para salto de linea</p>
+      <p class="">{{ advisory.title }}</p>
     </div>
     <div class="w-full max-h-8 h-8 text-xs line-clamp-2 text-slate-500">
-      <p>¿Qué es una sentencia? ¿Qué es una condicional? ¿Qué es una sentencia condicional?</p>
+      <p>{{ advisory.content }}</p>
     </div>
     <div class="flex flex-row justify-end items-center space-x-1 text-xs text-slate-800">
       <i class="fa-solid fa-message"></i>
-      <p>3</p>
+      <p>{{ advisory.messages }}</p>
     </div>
 
     <hr>
     <div class="text-[8px] line-clamp-1">
-      <p>Fundamentos de programación, Fundamentos de programación, Fundamentos de programación, Fundamentos de programación, Fundamentos de programación, Fundamentos de programación, Fundamentos de programación, ISC</p>
+      @for (tag of advisory.tags; track $index) {
+        <p>{{ tag }}</p>
+      }
     </div>
   </div>
 </div>
