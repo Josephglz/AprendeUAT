@@ -33,4 +33,11 @@ export class AdvisoryService {
     advisory.messages = cant.data?.length
     return advisory
   }
+
+  async getAdvisoryById(id: number) {
+    var result = await this._supabaseClient.from('advisorys')
+      .select('*')
+      .eq('id', id)
+    return result.data?.[0] as Advisory
+  }
 }
