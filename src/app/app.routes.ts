@@ -11,4 +11,9 @@ export const routes: Routes = [
     title: 'AprendeUAT - Asesorias',
     loadComponent: () => import('./pages/advisory/advisory.page').then((m) => m.AdvisoryPage)
   },
+  {
+    path: 'asesorias/:id',
+    title: 'AprendeUAT - Asesorias',
+    loadComponent: () => import('./pages/advisory_details/advisorydetails.page').then((m) => m.AdvisoryDetailsPage)
+  }
 ];
