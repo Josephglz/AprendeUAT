@@ -79,7 +79,9 @@
 
       <div class="w-full md:max-h-screen grid grid-cols-1 md:grid-cols-4 md:grid-rows-3 gap-2">
         @for (advisory of advisoryList; track advisory.id) {
-          <app-advisory-card [advisory]="advisory"></app-advisory-card>
+          <app-advisory-card
+            [routerLink]="['/asesorias', advisory.id]"
+            [advisory]="advisory"></app-advisory-card>
         }
       </div>
 

@@ -9,11 +9,13 @@ import { CareerData, SubjectData } from '../../interfaces/CareerData';
 import { AdvisoryCardComponent } from '../../components/advisory-card/advisory-card.component';
 import { Advisory } from '../../interfaces/Advisory';
 import { AdvisoryService } from '../../services/advisory.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   standalone: true,
   imports: [
     CommonModule,
+    RouterModule,
 
     MatChipsModule,
     AdvisoryCardComponent,
