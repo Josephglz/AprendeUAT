@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment.development';
 
 import { SupabaseClient, createClient } from '@supabase/supabase-js';
-import { Advisory } from '../interfaces/Advisory';
+import { Advisory, AdvisoryMessage } from '../interfaces/Advisory';
 
 
 @Injectable({
@@ -39,5 +39,12 @@ export class AdvisoryService {
       .select('*')
       .eq('id', id)
     return result.data?.[0] as Advisory
+  }
+
+  async getAdvisoryMessages(advisory: Advisory) {
+    var result = await this._supabaseClient.from('advisory_messages')
+      .select('*')
+      .eq('advisory_id', advisory.id)
+    return result.data as AdvisoryMessage[]
   }
 }
