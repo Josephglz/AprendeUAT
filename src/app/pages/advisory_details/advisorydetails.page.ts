@@ -1,23 +1,43 @@
-import { Component, Input } from '@angular/core';
-import { Advisory } from '../../interfaces/Advisory';
+import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+
+
+import { AdvisoryCardComponent } from '../../components/advisory-card/advisory-card.component';
+import { Advisory, AdvisoryMessage } from '../../interfaces/Advisory';
 import { AdvisoryService } from '../../services/advisory.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-advisory-card',
   standalone: true,
-  imports: [],
-  templateUrl: './advisory-card.component.html',
-  styleUrl: './advisory-card.component.css',
+  imports: [
+    CommonModule,
+
+    AdvisoryCardComponent,
+  ],
+  templateUrl: './advisorydetails.page.html',
+  styleUrl: './advisorydetails.page.css',
 })
-export class AdvisoryCardComponent {
-  @Input() advisory: Advisory = {} as Advisory;
+export class AdvisoryDetailsPage {
+  advisory: Advisory = {} as Advisory;
+  advisoryMsgs: AdvisoryMessage[] = [];
 
   constructor(
     private _advisoryService: AdvisoryService,
-  ) { }
+    private _route: ActivatedRoute,
+  ) {}
 
-  async ngOnChanges() {
-    this.advisory = await this._advisoryService.loadAdvisoryMessagesCount(this.advisory)
+  async ngOnInit() {
+    this._route.params.subscribe(params => {
+      var idx = +params['id'];
+      this._advisoryService.getAdvisoryById(idx).then((data) => {
+        this.advisory = data;
+
+        this._advisoryService.getAdvisoryMessages(this.advisory).then((data) => {
+          this.advisoryMsgs = data;
+        })
+      })
+
+    });
   }
 
   get sinceTime() {
@@ -48,4 +68,7 @@ export class AdvisoryCardComponent {
       return `Hace ${Math.floor(years)} años`
     }
   }
+
+
+
 }
