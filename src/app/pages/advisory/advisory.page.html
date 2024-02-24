@@ -37,7 +37,7 @@
 
       <div
         [ngClass]="{'hidden': subjects.length == 0 || filterCollapse}"
-        class="max-h-40 overflow-auto">
+        class="max-h-1/2 overflow-auto">
         <p class="text-lg font-medium text-slate-600">Asignaturas</p>
           @for (subject of subjects; track subject.id) {
             <div class="flex flex-row items-center space-x-2">
