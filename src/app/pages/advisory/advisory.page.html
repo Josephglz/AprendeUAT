@@ -40,9 +40,15 @@
         class="max-h-1/2 overflow-auto">
         <p class="text-lg font-medium text-slate-600">Asignaturas</p>
           @for (subject of subjects; track subject.id) {
-            <div class="flex flex-row items-center space-x-2">
-              <input (change)="filterChange($event)" type="checkbox" id="{{ subject.id }}" name="{{ subject.name }}">
-              <label for="{{ subject.id }}" title="{{ subject.name }}" class="w-full truncate text-sm">{{ subject.name }}</label>
+            <div class="flex flex-row items-center space-x-2 ps-1">
+              <input (change)="filterChange($event)"
+                type="checkbox"
+                id="{{ subject.id }}"
+                name="{{ subject.name }}"
+                class="appearance-none w-4 h-4 checked:bg-Secondary-LightOrange ring-1 ring-Secondary-Blue text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-orange-500">
+              <label for="{{ subject.id }}"
+                title="{{ subject.name }}"
+                class="w-full text-sm text-gray-900 truncate">{{ subject.name }}</label>
             </div>
           }
       </div>
